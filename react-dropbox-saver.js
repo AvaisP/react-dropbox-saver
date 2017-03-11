@@ -10,24 +10,6 @@ let scriptLoadingStarted = false;
 // https://www.dropbox.com/developers/saver
 export default class DropboxSaver extends Component {
 
-  static propTypes = {
-    children: React.PropTypes.node,
-    url: React.propTypes.string,
-    appKey: React.PropTypes.string.isRequired,
-    success: React.PropTypes.func.isRequired,
-    progress: React.PropTypes.func,
-    cancel: React.PropTypes.func,
-    error: React.propTypes.string,
-    extensions: React.PropTypes.arrayOf(React.PropTypes.string),
-    disabled: React.PropTypes.bool
-  };
-
-  static defaultProps = {
-    cancel: () => {},
-    progress: () => {},
-    disabled: false
-  };
-
   constructor(props) {
     super(props);
 
@@ -85,3 +67,21 @@ export default class DropboxSaver extends Component {
     );
   }
 }
+
+DropboxSaver.propTypes = {
+  children: React.PropTypes.node,
+  url: React.PropTypes.string,
+  appKey: React.PropTypes.string.isRequired,
+  success: React.PropTypes.func.isRequired,
+  progress: React.PropTypes.func,
+  cancel: React.PropTypes.func,
+  error: React.PropTypes.func,
+  extensions: React.PropTypes.arrayOf(React.PropTypes.string),
+  disabled: React.PropTypes.bool
+};
+
+DropboxSaver.defaultProps = {
+  cancel: () => {},
+  progress: () => {},
+  disabled: false
+};
